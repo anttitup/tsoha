@@ -4,4 +4,7 @@ class Image < ActiveRecord::Base
     :styles => {
      :thumb=> "100x100#",
      :small  => "150x150>" }
+  belongs_to:user
+  has_many:comment
+  validates_presence_of :image_name
 end
