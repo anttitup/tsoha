@@ -1,0 +1,17 @@
+<p>
+    <b> name:</b>
+      <%=h @image.name %>
+    </p>
+
+  <b> uploader:</b>
+  <%=h @image.user_name %>
+</p>
+
+<P>
+  <%=image_tag @image.picture.url%>
+  <%=image_tag @image.picture.url(:medium)%>
+  <%=image_tag @image.picture.url(:thumb)%>
+</p>
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>

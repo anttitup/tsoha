@@ -1,0 +1,20 @@
+<h1>kuvalauta</h1>
+<%for image in @images -%>
+  <div class="entry">
+    <h2><%= image.name %></h2>
+    <%= image_tag image.picture.url %>
+    <%= image_tag image.picture.url(:medium) %>
+    <%= image_tag image.picture.url(:thumb) %>
+   <h3>Comments</h3>
+      <% for comment in image.comments%>
+      <%= comment.comment %>
+      <%end%>
+      <%= form_tag :action => "comment", :id => image %>
+      <%= text_area "comment", "comment" %><br />
+      <%= submit_tag "Comment" %>
+      </form> 
+        
+</div>
+    
+<% end %>
+

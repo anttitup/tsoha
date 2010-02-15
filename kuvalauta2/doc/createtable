@@ -1,0 +1,31 @@
+CREATE TABLE "comments" 
+(
+	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+	"comment" text,
+	"posted" datetime, 
+	"image_id" integer,
+	"user_id" integer
+);
+
+CREATE TABLE "images" 
+(
+	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" varchar(255), 
+	"picture_file_name" varchar(255), 
+	"picture_content_type" varchar(255), 
+	"picture_file_size" integer, 
+	"user_id" integer
+);
+CREATE TABLE "schema_migrations"
+	("version" varchar(255) NOT NULL);
+CREATE TABLE "users" 
+(
+	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" varchar(255), 
+	"pasword" varchar(255), 
+	"email" varchar(255), 
+);
+
+CREATE UNIQUE INDEX "unique_schema_migrations" 
+ON "schema_migrations" ("version");
+
