@@ -4,12 +4,12 @@
   <tr>
     <th>name</th>
     <th> uploader</th>
+  </tr>
 <% @images.each do |image| %>
   <tr>
     <td><%=h image.name %></td>
-    <td><%=h image.user_name %></td>
+    <td><%=h image.user_id %></td>
     <td><%= link_to 'Show', image %></td>
-    <td><%= link_to 'Edit', edit_image_path(image) %></td>
     <td><%= link_to 'Destroy', image, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -17,4 +17,4 @@
 
 <br />
 
-<%= link_to 'New image', new_image_path %>
+<%= link_to'New image', new_image_path %>

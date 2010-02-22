@@ -1,19 +1,25 @@
-<h1>kuvalauta</h1>
+<head>
+  <%= stylesheet_link_tag "kuvalauta" , :media => "all" %>
+  <%= javascript_include_tag :defaults %>
+</head>
 <%for image in @images -%>
   <div class="entry">
     <h2><%= image.name %></h2>
     <%= image_tag image.picture.url %>
-    <%= image_tag image.picture.url(:medium) %>
-    <%= image_tag image.picture.url(:thumb) %>
+    <% if session[:user_id]==image.user_id %>
+    <%= link_to "destroy", image, :confirm => 'are ypu sure?', :method => :delete %>
+    <% end %>
    <h3>Comments</h3>
       <% for comment in image.comments%>
       <%= comment.comment %>
       <%end%>
-      <%= form_tag :action => "comment", :id => image %>
-      <%= text_area "comment", "comment" %><br />
-      <%= submit_tag "Comment" %>
-      </form> 
-        
+      <% if session[:user_id]%>
+          <%= form_tag :action => "comment", :id => image %>
+          <%= text_area "comment", "comment" %><br />
+          <%= submit_tag "Comment" %>
+        </form> 
+      
+      <% end %>
 </div>
     
 <% end %>

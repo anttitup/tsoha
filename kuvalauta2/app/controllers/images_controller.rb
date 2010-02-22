@@ -1,7 +1,8 @@
 class ImagesController < ApplicationController
   # GET /images
   # GET /images.xml
-  def index
+  before_filter :authorized, :except=> [:index, :show]
+    def index
     @images = Image.all
 
     respond_to do |format|
@@ -40,7 +41,9 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.xml
   def create
-    @image = Image.create(params[:image])
+    @image = Image.create(params[:image]) do |i|
+      i.user_id = session[:user_id]
+    end
   end
 
   # PUT /images/1
@@ -67,8 +70,10 @@ class ImagesController < ApplicationController
     @image.destroy
 
     respond_to do |format|
-      format.html { redirect_to(images_url) }
+      format.html { redirect_to :controller => 'kuvalauta' }
       format.xml  { head :ok }
     end
   end
+
+  
 end
