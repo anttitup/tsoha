@@ -11,16 +11,15 @@
     <%= @page_title || "kuvalauta" %>
   </div>
   <div id="columns">
-  <div id = "side">
-        
-      
+  <div id="side">     
       <%= link_to 'loggin', :controller => 'log', :action =>'login'%>
       <%= link_to 'main page', :controller => 'kuvalauta'%>
       <% if session[:user_id] %>
           <%= link_to 'New image', :controller => 'images',:action => 'new' %>
           <%= link_to 'New User',  :controller => 'users',:action => 'new'%>
           <%= link_to 'Logout', :controller => 'log', :action => 'logout' %>
-          <%= link_to 'Edit User', :controller => 'users' , :action => 'edit' %>      <% end %>
+          <%= link_to 'Edit User', :controller => 'users' , :action => 'edit' %>    
+      <% end %>
     </div>
     </div>
     <div id="main">
