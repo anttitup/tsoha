@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
-  before_filter :authorized, :except=> [:new]
+  before_filter :authorized, :except=> [:new,:create]
 
   def index
     @users = User.all
