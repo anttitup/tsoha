@@ -15,6 +15,7 @@ class ImagesController < ApplicationController
 
  
   def create
+  #raise params[:image].inspect
     @image = Image.new(params[:image])
       if @image.save
         redirect_to root_path
