@@ -1,7 +1,7 @@
 class KuvalautaController < ApplicationController
   
   def index
-    @images = Image.all 
+     @images = Image.all
   end
  
   def comment
@@ -11,16 +11,11 @@ class KuvalautaController < ApplicationController
     redirect_to :action => "index", :id => params[:id]
   end
   
-  def search
-    @images=Image.find_by_name params[:search]
-    redirect_to :action => "index"
+  def search 
+    @images=Image.search params[:search]
   end
   
-  def find_pictures_by_uploader
-       redirect_to :action => "index"
-  end
-
-  def show
-    @image = Image.find(params[:id])
+  def show_results
+    @image = Image.find(params[:image])
   end
 end

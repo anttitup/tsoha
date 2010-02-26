@@ -13,6 +13,7 @@ protected
       redirect_to :controller => 'log' , :action => 'login'
     end
   end
+  
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password

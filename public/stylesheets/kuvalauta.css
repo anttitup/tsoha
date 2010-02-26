@@ -30,6 +30,25 @@
 }
 #side a {
   color: #bfb ;
-  font-size: medium;
+  font-size: small;
+}
+h1 {
+    font-size: 34px;
+    font-weight: bold;
+    color: #000;
+    }
+a:link {
+color:#00c0ff;
+}
+a:visited {
+color:#00c0ff;
+}
+a:hover {
+color:#FFFFFF;
+background-color:#00c0ff;
 }
 
+.content a:hover {
+color:#FFFFFF;
+background-color:#00c0ff;
+}
