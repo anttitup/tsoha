@@ -1,18 +1,23 @@
 class KuvalautaController < ApplicationController
   
   def index
-    @images = Image.find_all_images
+    @images = Image.all 
   end
  
   def comment
-    Image.find(params[:id]).comments.create(params[:comment])    
-    flash[:notice] = "Added your comment"
+    Image.find(params[:id]).comments.create(params[:comment])    do |i|
+      i.user_id= session[:user_id]
+    end
     redirect_to :action => "index", :id => params[:id]
   end
-
-  def search_by_name (name)
-    @images = Image.find_all_by_name(name)
-    redirect_to(@image)
+  
+  def search
+    @images=Image.find_by_name params[:search]
+    redirect_to :action => "index"
+  end
+  
+  def find_pictures_by_uploader
+       redirect_to :action => "index"
   end
 
   def show

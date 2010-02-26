@@ -9,5 +9,7 @@ class User < ActiveRecord::Base
   def self.authenticate(name, password)
     find(:first, :conditions => {:name=>name, :pasword =>password})  
   end
-
+  def name
+    @name
+  end
 end

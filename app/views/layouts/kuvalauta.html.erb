@@ -19,7 +19,7 @@
       <li>    <%= link_to 'New image', :controller => 'images',:action => 'new' %></li>
       <li>    <%= link_to 'New User',  :controller => 'users',:action => 'new'%></li>
       <li>    <%= link_to 'Logout', :controller => 'log', :action => 'logout' %></li>
-      <li>    <%= link_to 'Edit User', :controller => 'users' , :action => 'edit' %></li>    
+      <li>    <%= link_to 'Edit User',{ :controller => 'users' , :action => 'edit'} %></li>    
       <% end %>
       </ul>
     </div>
@@ -30,7 +30,13 @@
       <% end -%>
       <%= yield :layout %>
     </div>
+  <div id="search">
+      <%form_tag controller => 'kuvalauta', :action => 'search', :method => 'get' do%>
+      <%= text_field_tag :search, params[:search],:id =>'search_field'%>
+      <%submit_tag "search"%>
   </div>
+
+ </div>
 </body>
 </html>
 

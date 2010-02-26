@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find session[:user_id]
+    @user = User.find_by_id(session[:params])
     
     if request.post?
       if @user.update_attributes params[:user]
@@ -90,6 +90,5 @@ class UsersController < ApplicationController
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
     end
-  end
- 
+  end 
 end

@@ -10,8 +10,8 @@
 
 <% @comments.each do |comment| %>
   <tr>
-    <td><%=h comment.image_name %></td>
-    <td><%=h comment.user_name %></td>
+    <td><%=h comment.image_id %></td>
+    <td><%=h comment.user_id %></td>
     <td><%=h comment.comment %></td>
     <td><%=h comment.posted %></td>
     <td><%= link_to 'Show', comment %></td>
