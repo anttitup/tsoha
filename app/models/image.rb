@@ -7,11 +7,13 @@ class Image < ActiveRecord::Base
   named_scope :image_name, lambda { |image_name|
   {:conditions => {:name => image_name}}}
   
+  validates_presence_of :name,:user_id
+
   has_attached_file :picture,
  :styles =>{:thumb=> "100x100#",:small  => "150x150>" }
   
   validates_attachment_presence :picture
-  
+    
   validates_attachment_size :picture,
   :less_than => 2.megabytes
   

@@ -5,12 +5,12 @@ class LogController < ApplicationController
         user = User.authenticate(params[:name], params[:password]) 
         if user 
           session[:user_id]=user.id
-          redirect_to :controller =>"kuvalauta", :action =>"index"
-         else
-            flash[:notice]= "et voinut kirjautua" 
-      
+          redirect_to root_path
+        else
+          flash[:notice]= "cannot authenticate"
+          redirect_to :controller=>:log, :action =>"login"
+        end
       end
-    end
   end
 
   
